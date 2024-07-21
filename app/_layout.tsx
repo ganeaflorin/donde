@@ -1,8 +1,11 @@
+import { Header } from '@/components/Header';
+import { themeColor } from '@/constants/Colors';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import { useEffect } from 'react';
-import { AutocompleteDropdownContextProvider } from 'react-native-autocomplete-dropdown';
 import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
+import { StatusBar } from 'react-native';
+import { AutocompleteDropdownContextProvider } from 'react-native-autocomplete-dropdown';
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -25,6 +28,8 @@ export default function RootLayout() {
 
   return (
     <AutocompleteDropdownContextProvider>
+      <StatusBar translucent={false} backgroundColor={themeColor} />
+      <Header />
       <Stack
         screenOptions={{
           headerShown: false,

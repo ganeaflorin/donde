@@ -1,14 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-export const stylesFn = (isAvailable: boolean) =>
-  StyleSheet.create({
-    unavailable: {
-      // filter: 'brightness(50%)',
-      backgroundColor: isAvailable ? 'rgba(0,0,0,0.5)' : '',
-    },
-    icon: {
-      borderRadius: 10,
-      height: 50,
-      width: 50,
-    },
-  });
+export const styles = StyleSheet.create({
+  icon: {
+    borderRadius: 10,
+    height: 50,
+    width: 50,
+    // borderWidth: 2,
+    // borderColor: 'white',
+    // borderStyle: 'solid',
+  },
+});
