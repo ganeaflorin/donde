@@ -1,14 +1,14 @@
+import { whiteColor } from '@/constants/Colors';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
     paddingRight: 20,
     paddingBottom: 50,
     paddingLeft: 20,
   },
   platformsContainer: {
-    marginTop: 30,
+    marginTop: 40,
     marginBottom: 10,
     alignItems: 'center',
   },
@@ -21,8 +21,10 @@ export const styles = StyleSheet.create({
   poster: {
     height: 400,
     width: 300,
+    marginTop: 50,
+
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: whiteColor,
     borderStyle: 'solid',
   },
   movieDetails: {
@@ -40,7 +42,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   unavailable: {
-    marginTop: 30,
+    marginTop: 40,
     textAlign: 'center',
   },
 });

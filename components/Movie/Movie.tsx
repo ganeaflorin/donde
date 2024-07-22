@@ -1,3 +1,4 @@
+import { whiteColor } from '@/constants/Colors';
 import { getAvailableStreamingPlatforms } from '@/helpers/getAvailableStreamingPlatforms';
 import { Platforms, SelectOption } from '@/types/movie';
 import React, { useEffect, useState } from 'react';
@@ -9,7 +10,6 @@ import { styles } from './Movie.styles';
 
 const Movie = ({ id, posterLink, year, overview, title }: SelectOption) => {
   const [platforms, setPlatforms] = useState<unknown[]>([]);
-
   async function setData() {
     setPlatforms(await getAvailableStreamingPlatforms(id));
   }
@@ -21,21 +21,36 @@ const Movie = ({ id, posterLink, year, overview, title }: SelectOption) => {
   return (
     <View style={styles.container}>
       <View style={styles.movieDetails}>
-        <Image source={{ uri: posterLink }} style={styles.poster} />
+        {posterLink && (
+          <Image
+            source={{ uri: process.env.EXPO_PUBLIC_POSTER_PATH + posterLink }}
+            style={styles.poster}
+          />
+        )}
         <View style={styles.metadata}>
-          <ThemedText font={FontVariants.SEMI_BOLD}>{title}</ThemedText>
-          <ThemedText>{year}</ThemedText>
+          <ThemedText textColor={whiteColor} font={FontVariants.SEMI_BOLD}>
+            {title}
+          </ThemedText>
+          <ThemedText textColor={whiteColor}>{year}</ThemedText>
         </View>
-        <ThemedText>{overview}</ThemedText>
+        <ThemedText textColor={whiteColor}>{overview}</ThemedText>
       </View>
       {platforms.length === 0 && (
-        <ThemedText font={FontVariants.MEDIUM} style={styles.unavailable}>
+        <ThemedText
+          textColor={whiteColor}
+          font={FontVariants.MEDIUM}
+          style={styles.unavailable}
+        >
           This movie is not available on any streaming platform
         </ThemedText>
       )}
       {platforms.length > 0 && (
         <View style={styles.platformsContainer}>
-          <ThemedText font={FontVariants.MEDIUM} style={styles.availableOn}>
+          <ThemedText
+            textColor={whiteColor}
+            font={FontVariants.MEDIUM}
+            style={styles.availableOn}
+          >
             Available on
           </ThemedText>
           <View style={styles.platformsIcons}>

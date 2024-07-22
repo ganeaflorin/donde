@@ -16,7 +16,7 @@ export const getMoviesFromApi = async (query: string) => {
         id: movie.id,
         title: movie.title,
         overview: movie.overview,
-        posterLink: process.env.EXPO_PUBLIC_POSTER_PATH + movie['poster_path'],
+        posterLink: movie['poster_path'],
         year: movie['release_date'].slice(0, 4),
       }));
     return parsedMovies;

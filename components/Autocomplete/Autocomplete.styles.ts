@@ -1,17 +1,17 @@
-import { themeColor } from '@/constants/Colors';
+import { whiteColor } from '@/constants/Colors';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   innerInput: {
     fontFamily: 'RobotoCondensed-Regular',
-    paddingLeft: 10,
-    paddingRight: 10,
+    padding: 10,
   },
   input: {
-    borderColor: themeColor,
-    borderWidth: 2,
-    borderStyle: 'solid',
+    backgroundColor: whiteColor,
     borderRadius: 50,
+    padding: 5,
+    borderWidth: 2,
+    borderColor: 'black',
   },
   autocompleteWrapper: {
     marginTop: 30,

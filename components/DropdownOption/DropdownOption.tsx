@@ -9,7 +9,10 @@ const DropdownOption = ({ title, year, posterLink }: SelectOption) => {
   return (
     <View style={styles.optionContainer}>
       <View style={styles.posterContainer}>
-        <Image style={styles.poster} source={{ uri: posterLink }} />
+        <Image
+          style={styles.poster}
+          source={{ uri: process.env.EXPO_PUBLIC_POSTER_PATH + posterLink }}
+        />
       </View>
       <View style={styles.textContainer}>
         <ThemedText font={FontVariants.SEMI_BOLD}>{title}</ThemedText>

@@ -8,6 +8,7 @@ export type ThemedTextProps = TextProps & {
   darkColor?: string;
   type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
   font?: FontVariants;
+  textColor?: string;
 };
 
 export function ThemedText({
@@ -16,9 +17,11 @@ export function ThemedText({
   darkColor,
   type = 'default',
   font,
+  textColor,
   ...rest
 }: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const color =
+    textColor ?? useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
   const fontMappings = {
     [FontVariants.LIGHT]: styles.fontLight,
